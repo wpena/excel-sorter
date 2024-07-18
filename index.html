@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Room Lookup - Excel Sorter</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <h1>Sort Room Lookup by Road Names</h1>
+    <input type="file" id="fileInput" accept=".xlsx" />
+    <i
+      id="viewButton"
+      class="fas fa-eye"
+      style="display: none; cursor: pointer"
+    ></i>
+    <i
+      id="downloadButton"
+      class="fas fa-download"
+      style="display: none; cursor: pointer"
+    ></i>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <button id="modalDownloadButton" class="download-btn">
+          <i class="fas fa-download"></i> Download Sorted File
+        </button>
+        <table id="outputTable">
+          <thead>
+            <tr></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+    <script src="./assets/js/scripts.js"></script>
+  </body>
+</html>
