@@ -1,46 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Room Lookup - Excel Sorter</title>
-    <link rel="stylesheet" href="./assets/css/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
-  </head>
-  <body>
-    <h1>Sort Room Lookup by Road Names</h1>
-    <input type="file" id="fileInput" accept=".xlsx" />
-    <i
-      id="viewButton"
-      class="fas fa-eye"
-      style="display: none; cursor: pointer"
-    ></i>
-    <i
-      id="downloadButton"
-      class="fas fa-download"
-      style="display: none; cursor: pointer"
-    ></i>
 
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <button id="modalDownloadButton" class="download-btn">
-          <i class="fas fa-download"></i> Download Sorted File
-        </button>
-        <table id="outputTable">
-          <thead>
-            <tr></tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Inter+Tight:ital@0;1&display=swap"
+        rel="stylesheet">
+    <title>Excel File Sorter</title>
+</head>
+
+<body>
+    <div class="upload-container">
+        <h1>Room Lookup Sorter</h1>
+        <p>Upload an Excel file to sort room lookup data based on road names. You can preview and download the sorted
+            file.</p>
+        <div class="upload-area" id="drop-area">
+            <div class="icon"><i class="fa-solid fa-cloud-arrow-up fa-beat-fade"></i></i></div>
+            <p>Drag & Drop or Click to Select File</p>
+        </div>
+        <div class="file-info">
+            <span class="file-icon"><i class="fa-solid fa-file-excel file-icon"></i></span>
+            <span id="file-name"></span>
+        </div>
+        <div class="button-container">
+            <button id="view-btn"><span class="button-icon"><i class="fa-solid fa-eye"></i></span>Preview</button>
+            <button id="download-btn" class="download-btn"><span class="button-icon"><i class="fa-solid fa-download"></i></span>Download</button>
+        </div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+    <input type="file" id="file-input" accept=".xlsx, .xls" style="display: none;">
+    <div id="previewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="logo-img">
+                    <!-- Logo in the modal -->
+                    <img src="./assets/images/ach-logo.svg">
+                </div>
+                     <!-- Close modal and download file buttons -->
+                <div class="button-group">
+                    <button class="download-btn"><span class="button-icon"><i class="fa-solid fa-download"></i></span>Download</button>
+                    <span class="close" onclick="closeModal()">&times;</span>
+                </div>
+            </div>
+            <div id="previewTable"></div>
+            <div class="modal-footer">
+                <button class="modal-close-btn" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://kit.fontawesome.com/dd70eaf0a8.js" crossorigin="anonymous"></script>
     <script src="./assets/js/scripts.js"></script>
-  </body>
+</body>
+
 </html>
